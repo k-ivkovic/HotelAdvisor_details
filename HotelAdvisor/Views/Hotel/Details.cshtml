@@ -1,0 +1,17 @@
+﻿@model HotelAdvisor.Models.HotelDetailsViewModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <img src="@Model.Image" alt="Hotel image" width="500px" height="250" />
+</div>
+<div>
+   <h2> @Html.DisplayFor(m=>m.HotelName) </h2>
+</div>
+<hr/>
+@Html.Partial("_CommentListForHotel", Model.Comments)
+
+@Html.ActionLink("Back to list", "Index")
