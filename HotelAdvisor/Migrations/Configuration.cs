@@ -1,6 +1,8 @@
 namespace HotelAdvisor.Migrations
 {
     using HotelAdvisor.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -37,6 +39,25 @@ namespace HotelAdvisor.Migrations
 
             hotels.ForEach(h => context.Hotels.Add(h));
             context.SaveChanges();
+
+            ////create role
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //if (!roleManager.RoleExists("Admin"))
+            //{
+            //    roleManager.Create(new IdentityRole("Admin"));
+            //}
+
+            ////create user
+            //if (!context.Users.Any(u => u.UserName == "admin@admin.com"))
+            //{
+            //    var user = new ApplicationUser { UserName = "admin@admin.com", Email = "admin@admin.com" };
+
+            //    var userManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(context));
+            //    userManager.Create(user, "Admin@123");
+
+            //    //add user to role
+            //    userManager.AddToRole(user.Id, "Admin");
+            //}
         }
     }
 }
